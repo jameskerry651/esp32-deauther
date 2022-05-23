@@ -103,7 +103,7 @@ const uint8_t beaconPacket[109] = {
 esp_err_t PacketSender::deauth(const MacAddr ap, const MacAddr station,
         const MacAddr bssid, uint8_t reason, uint8_t channel) {
     
-    esp_err_t res = change_channel(channel);
+    esp_err_t res = change_channel(channel);      // actully run esp_wifi's function of esp_err_t esp_wifi_set_config(wifi_interface_t interface, wifi_config_t *conf);
     if(res != ESP_OK) return res;
     
     memcpy(buffer, deauthPacket, sizeof(deauthPacket));
